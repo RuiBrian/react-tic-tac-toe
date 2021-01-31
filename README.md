@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Tic-tac-toe
+
+This small project was simply a way for me to learn and familiarize myself with React. The tic-tac-toe game was built by largely following [this](https://reactjs.org/tutorial/tutorial.html) tutorial.
+
+Future additions and changes will be added and documented here.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -9,6 +13,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
+Be sure to run `npm install` before running the app for the first time.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
