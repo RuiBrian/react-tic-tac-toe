@@ -1,0 +1,26 @@
+body {
+  font: 36px Futura, sans-serif;
+  margin: 20px;
+  background-color: #2D3047;
+  color: white;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.status {
+  margin-bottom: 20px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  height: 34px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
