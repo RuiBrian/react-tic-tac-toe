@@ -36,7 +36,14 @@ class Board extends React.Component {
   }
 
   handleResetRequest() {
-    /* TODO */
+    const squares = this.state.squares.slice();
+    for (let i = 0; i < squares.length; i++ ) {
+      squares[i] = null;
+    }
+    this.setState({
+      squares: squares,
+      xIsNext: true
+    });
   }
 
   renderSquare(i) {
