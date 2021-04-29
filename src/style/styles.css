@@ -56,6 +56,9 @@
 .resetButton:focus {
   outline: none
 }
+.resetButton:active {
+  background-color: #FF9B71;
+}
 
 /* Game */
 .game {
@@ -68,13 +71,19 @@
   margin: 0 auto;
 }
 
-.game-info {
-  margin-left: 20px;
-}
-
 /* Board */
 .board-row:after {
   clear: both;
   content: "";
   display: table;
+}
+
+/* Status */
+.status {
+  margin-left: 20px;
+}
+
+/* Info */
+.game-info {
+  margin-left: 20px;
 }
