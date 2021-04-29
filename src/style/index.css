@@ -2,25 +2,23 @@ body {
   font: 36px Futura, sans-serif;
   margin: 20px;
   background-color: #2D3047;
-  color: white;
+  color: #FAF9F6;
 }
 
 ol, ul {
   padding-left: 30px;
 }
 
-.status {
-  margin-bottom: 20px;
+h1 {
+  background-color: #1B998B;
+  margin: auto;
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 52px;
+  font-weight: bold;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  height: 34px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+.status {
+  margin-bottom: 20px;
 }
