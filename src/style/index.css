@@ -1,20 +1,35 @@
 body {
   font: 36px Futura, sans-serif;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
   background-color: #2D3047;
   color: #FAF9F6;
 }
 
-ol, ul {
-  padding-left: 30px;
-}
-
 h1 {
   background-color: #1B998B;
-  margin: auto;
-  padding: 10px 10px;
+  margin: 20px;
+  padding: 10px;
   text-align: center;
   font-size: 52px;
   font-weight: bold;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+ol {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+button {
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#container {
+  text-align: center;
 }

@@ -70,6 +70,10 @@ class Game extends React.Component {
     // });
   }
 
+  handleUndoRequest() {
+
+  }
+
   jumpTo(step) {
     this.setState({
       stepNumber: step,
@@ -128,11 +132,12 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-          <div className="reset">
-          <button onClick={() => this.handleResetRequest()} className="resetButton">RESET</button>
+          <div className="status">{status}</div>
+          <div id="container">
+            <button onClick={() => this.handleUndoRequest()} className="undoButton">UNDO</button>
+            <button onClick={() => this.handleResetRequest()} className="resetButton">RESET</button>
           </div>
+          <ol>{moves}</ol>
         </div>
       </div>
     );
