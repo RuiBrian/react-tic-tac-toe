@@ -70,16 +70,14 @@ class Game extends React.Component {
     // });
   }
 
-  handleUndoRequest() {
-
-  }
-
   jumpTo(step) {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0,
     });
   }
+
+
   
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -101,6 +99,11 @@ class Game extends React.Component {
     });
   }
 
+  /* Executes after component is rendered */
+  componentDidUpdate() {
+    updateScroll();
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -108,8 +111,8 @@ class Game extends React.Component {
 
     const moves = history.map((step, move) => {
       const description = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        'Move ' + move :
+        'Game Start';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{description}</button>
@@ -123,6 +126,7 @@ class Game extends React.Component {
     } else {
       status = 'Player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
+
     return (
       <div className="game">
         <div className="game-board">
@@ -132,16 +136,18 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div className="status">{status}</div>
-          <div id="container">
-            <button onClick={() => this.handleUndoRequest()} className="undoButton">UNDO</button>
-            <button onClick={() => this.handleResetRequest()} className="resetButton">RESET</button>
-          </div>
-          <ol>{moves}</ol>
+          <div id="status">{status}</div>
+          <div id="history"><ol>{moves}</ol></div>
+          <button onClick={() => this.handleResetRequest()} className="resetButton">RESET</button>
         </div>
       </div>
     );
   }
+}
+
+function updateScroll() {
+  let element = document.getElementById("history");
+  element.scrollTop = element.scrollHeight;
 }
 
 function calculateWinner(squares) {
