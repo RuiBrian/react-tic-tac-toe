@@ -12,7 +12,6 @@
   justify-content: center;
   background-color: #1B998B;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-
   border-radius: 5px;
   color: #fff;
   font-weight: bold;
@@ -87,6 +86,7 @@
   max-height: 200px;
   height: 200px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 /* Custom scrollbar */

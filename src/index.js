@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom';
 import './style/index.css';
 import './style/styles.css';
 
-function Square(props) { 
+function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
       {props.value}
     </button>
   );
 }
-  
+
 class Board extends React.Component {
-
-
   renderSquare(i) {
     return (
       <Square
@@ -41,8 +39,7 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-
-    </div>
+      </div>
     );
   }
 }
@@ -51,7 +48,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      history:[{
+      history: [{
         squares: Array(9).fill(null),
       }],
       stepNumber: 0,
@@ -60,14 +57,13 @@ class Game extends React.Component {
   }
 
   handleResetRequest() {
-    // const squares = this.state.squares.slice();
-    // for (let i = 0; i < squares.length; i++ ) {
-    //   squares[i] = null;
-    // }
-    // this.setState({
-    //   squares: squares,
-    //   xIsNext: true,
-    // });
+    this.setState({
+      history: [{
+        squares: Array(9).fill(null),
+      }],
+      stepNumber: 0,
+      xIsNext: true,
+    });
   }
 
   jumpTo(step) {
@@ -77,8 +73,6 @@ class Game extends React.Component {
     });
   }
 
-
-  
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
@@ -169,7 +163,7 @@ function calculateWinner(squares) {
       return squares[a];
     }
   }
-  
+
   return null;
 }
 
