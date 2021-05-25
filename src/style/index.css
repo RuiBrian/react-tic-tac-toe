@@ -4,6 +4,9 @@ body {
   padding: 0;
   background-color: #2D3047;
   color: #FAF9F6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -27,4 +30,11 @@ button {
   font-weight: bold;
   border: none;
   cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  margin-top: auto;
+  margin-bottom: 15px;
 }

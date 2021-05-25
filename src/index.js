@@ -105,8 +105,8 @@ class Game extends React.Component {
 
     const moves = history.map((step, move) => {
       const description = move ?
-        'Move ' + move :
-        'Game Start';
+        'move ' + move :
+        'game start';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{description}</button>
@@ -116,9 +116,9 @@ class Game extends React.Component {
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = 'winner: ' + winner;
     } else {
-      status = 'Player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -132,7 +132,7 @@ class Game extends React.Component {
         <div className="game-info">
           <div id="status">{status}</div>
           <div id="history"><ol>{moves}</ol></div>
-          <button onClick={() => this.handleResetRequest()} className="resetButton">RESET</button>
+          <button onClick={() => this.handleResetRequest()} className="resetButton">reset</button>
         </div>
       </div>
     );
