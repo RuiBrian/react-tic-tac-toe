@@ -50,7 +50,6 @@
   width: fit-content;
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   margin: 50px auto;
 }
@@ -104,11 +103,11 @@
   background-clip: content-box;
 }
 
+/* Theme picker */
 #theme-picker {
   display: inline;
   cursor: pointer;
 }
-
 #theme-picker:hover {
   color: #ED217C;
 }

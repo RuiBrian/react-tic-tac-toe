@@ -46,11 +46,9 @@ footer {
 a:visited {
   color: unset;
 }
-
 a:link {
   text-decoration: none;
 }
-
 a:hover {
   color: #ED217C;
 }
