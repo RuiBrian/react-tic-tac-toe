@@ -1,8 +1,8 @@
 # Tic-tac-toe
 
-This small project was simply a way for me to learn and familiarize myself with React. The tic-tac-toe game was built by largely following [this](https://reactjs.org/tutorial/tutorial.html) tutorial.
+Yet another tic-tac-toe game...
 
-Future additions and changes will be added and documented here.
+The backend of this game was built by largely following [this](https://reactjs.org/tutorial/tutorial.html) tutorial.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
