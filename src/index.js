@@ -22,25 +22,18 @@ class Board extends React.Component {
   }
 
   render() {
+    // Render board using loops
     return (
-      <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+      <div className="game-board">
+        {Array(3).fill(null).map((item1, i) => {
+          return (<div className="board-row" key={i}>
+            {Array(3).fill(null).map((item2, j) => {
+              return this.renderSquare(3 * i + j)
+            })}
+          </div>)
+        })}
       </div>
-    );
+    )
   }
 }
 
@@ -123,12 +116,10 @@ class Game extends React.Component {
 
     return (
       <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
-        </div>
+        <Board
+          squares={current.squares}
+          onClick={(i) => this.handleClick(i)}
+        />
         <div className="game-info">
           <div id="status">{status}</div>
           <div id="history"><ol>{moves}</ol></div>
