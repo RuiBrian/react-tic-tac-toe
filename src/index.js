@@ -76,7 +76,7 @@ class Game extends React.Component {
       return;
     }
 
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.state.xIsNext ? 'x' : 'o';
     this.setState({
       history: history.concat([{
         squares: squares
@@ -110,8 +110,10 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = 'winner: ' + winner;
+    } else if (history.length != 10) {
+      status = 'player: ' + (this.state.xIsNext ? 'x' : 'o');
     } else {
-      status = 'player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'draw';
     }
 
     return (
