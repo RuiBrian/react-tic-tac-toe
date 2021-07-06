@@ -4,10 +4,10 @@ Yet another tic-tac-toe game...
 
 The backend of this game was built by largely following [this](https://reactjs.org/tutorial/tutorial.html) tutorial.
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Screenshots
 <img src="https://i.imgur.com/DXWHtq9.png" width="5000">
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
