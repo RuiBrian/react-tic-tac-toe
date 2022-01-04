@@ -7,6 +7,7 @@ The backend of this game was built by largely following [this](https://reactjs.o
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Screenshots
+
 <img src="https://i.imgur.com/DXWHtq9.png" width="5000">
 
 ## Available Scripts
