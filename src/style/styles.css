@@ -10,17 +10,17 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  background-color: #1B998B;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: #1b998b;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   border-radius: 5px;
   color: #fff;
   font-weight: bold;
   margin-right: 10px;
 }
-.square:hover{
-  background-color: #FF9B71;
+.square:hover {
+  background-color: #ff9b71;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .square:focus {
   outline: none;
@@ -33,15 +33,15 @@
   border: none;
   width: 165px;
   height: 50px;
-  background-color: #ED217C;
+  background-color: #ed217c;
   color: white;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.resetButton:hover{
-  background-color: #FF9B71;
+.resetButton:hover {
+  background-color: #ff9b71;
 }
 .resetButton:focus {
-  outline: none
+  outline: none;
 }
 
 /* Game */
@@ -91,13 +91,13 @@
 
 /* Custom scrollbar */
 #history::-webkit-scrollbar {
-  width:20px;
+  width: 20px;
 }
 #history::-webkit-scrollbar-track {
   background-color: transparent;
 }
 #history::-webkit-scrollbar-thumb {
-  background: #ED217C;
+  background: #ed217c;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
@@ -109,5 +109,5 @@
   cursor: pointer;
 }
 #theme-picker:hover {
-  color: #ED217C;
+  color: #ed217c;
 }

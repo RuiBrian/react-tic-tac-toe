@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 body {
   font-family: Roboto Mono;
   margin: 0;
   padding: 0;
-  background-color: #2D3047;
-  color: #FAF9F6;
+  background-color: #2d3047;
+  color: #faf9f6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 h1 {
-  background-color: #1B998B;
+  background-color: #1b998b;
   margin: 20px;
   padding: 10px;
   text-align: center;
   font-size: 52px;
   font-weight: bold;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 ol {
@@ -43,12 +43,12 @@ footer {
   margin-bottom: 10px;
 }
 
-a:visited {
+a {
   color: unset;
 }
 a:link {
   text-decoration: none;
 }
 a:hover {
-  color: #ED217C;
+  color: #ed217c;
 }
