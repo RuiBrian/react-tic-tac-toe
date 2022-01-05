@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Board from "./Board";
 
-function updateScroll() {
+const updateScroll = () => {
   let element = document.getElementById("history");
   element.scrollTop = element.scrollHeight;
-}
+};
 
-function calculateWinner(squares) {
+const calculateWinner = (squares) => {
   // Win conditions
   const lines = [
     [0, 1, 2],
@@ -27,44 +27,37 @@ function calculateWinner(squares) {
   }
 
   return null;
-}
+};
 
-class Game extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: [
-        {
-          squares: Array(9).fill(null),
-        },
-      ],
-      stepNumber: 0,
-      xIsNext: true,
-    };
-  }
+const initialHistory = [
+  {
+    squares: Array(9).fill(null),
+  },
+];
 
-  handleResetRequest() {
-    this.setState({
-      history: [
-        {
-          squares: Array(9).fill(null),
-        },
-      ],
-      stepNumber: 0,
-      xIsNext: true,
-    });
-  }
+const Game = () => {
+  const [history, setHistory] = useState(initialHistory);
+  const [stepNumber, setStepNumber] = useState(0);
+  const [xIsNext, setXIsNext] = useState(true);
 
-  jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0,
-    });
-  }
+  useEffect(() => {
+    updateScroll();
+  }, []);
 
-  handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
+  const handleResetRequest = () => {
+    setHistory(initialHistory);
+    setStepNumber(0);
+    setXIsNext(true);
+  };
+
+  const jumpTo = (step) => {
+    setStepNumber(step);
+    setXIsNext(step % 2 === 0);
+  };
+
+  const handleClick = (i) => {
+    const hist = history.slice(0, stepNumber + 1);
+    const current = hist[hist.length - 1];
     const squares = current.squares.slice();
 
     // Return early if there is a winner or if square is filled
@@ -72,64 +65,53 @@ class Game extends React.Component {
       return;
     }
 
-    squares[i] = this.state.xIsNext ? "x" : "o";
-    this.setState({
-      history: history.concat([
+    squares[i] = xIsNext ? "x" : "o";
+
+    setHistory(
+      hist.concat([
         {
           squares: squares,
         },
       ]),
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
-    });
-  }
-
-  /* Executes after component is rendered */
-  componentDidUpdate() {
-    updateScroll();
-  }
-
-  render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
-
-    const moves = history.map((step, move) => {
-      const description = move ? "move " + move : "game start";
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{description}</button>
-        </li>
-      );
-    });
-
-    let status;
-    if (winner) {
-      status = "winner: " + winner;
-    } else if (history.length !== 10) {
-      status = "player: " + (this.state.xIsNext ? "x" : "o");
-    } else {
-      status = "draw";
-    }
-
-    return (
-      <div className="game">
-        <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
-        <div className="game-info">
-          <div id="status">{status}</div>
-          <div id="history">
-            <ol>{moves}</ol>
-          </div>
-          <button
-            onClick={() => this.handleResetRequest()}
-            className="resetButton"
-          >
-            reset
-          </button>
-        </div>
-      </div>
     );
+    setStepNumber(hist.length);
+    setXIsNext(!xIsNext);
+  };
+
+  const current = history[stepNumber];
+  const winner = calculateWinner(current.squares);
+  const moves = history.map((_, move) => {
+    const description = move ? "move " + move : "game start";
+    return (
+      <li key={move}>
+        <button onClick={() => jumpTo(move)}>{description}</button>
+      </li>
+    );
+  });
+
+  let status = "";
+  if (winner) {
+    status = "winner: " + winner;
+  } else if (history.length !== 10) {
+    status = "player: " + (xIsNext ? "x" : "o");
+  } else {
+    status = "draw";
   }
-}
+
+  return (
+    <div className="game">
+      <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+      <div className="game-info">
+        <div id="status">{status}</div>
+        <div id="history">
+          <ol>{moves}</ol>
+        </div>
+        <button onClick={() => handleResetRequest()} className="resetButton">
+          reset
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Game;

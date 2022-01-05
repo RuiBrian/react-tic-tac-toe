@@ -1,36 +1,27 @@
 import React from "react";
 import Square from "./Square";
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
-  }
+const Board = ({ squares, onClick }) => {
+  const createSquare = (i, key) => {
+    return <Square key={key} value={squares[i]} onClick={() => onClick(i)} />;
+  };
 
-  render() {
-    // Render board using loops
-    return (
-      <div className="game-board">
-        {Array(3)
-          .fill(null)
-          .map((item1, i) => {
-            return (
-              <div className="board-row" key={i}>
-                {Array(3)
-                  .fill(null)
-                  .map((item2, j) => {
-                    return this.renderSquare(3 * i + j);
-                  })}
-              </div>
-            );
-          })}
-      </div>
-    );
-  }
-}
+  // Create board
+  const cells = Array(3)
+    .fill(null)
+    .map((_, i) => {
+      return (
+        <div className="board-row" key={i}>
+          {Array(3)
+            .fill(null)
+            .map((_, j) => {
+              return createSquare(3 * i + j, j);
+            })}
+        </div>
+      );
+    });
+
+  return <div className="game-board">{cells}</div>;
+};
 
 export default Board;
