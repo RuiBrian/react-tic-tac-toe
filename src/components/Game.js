@@ -42,7 +42,7 @@ const Game = () => {
 
   useEffect(() => {
     updateScroll();
-  }, []);
+  }, [history]);
 
   const handleResetRequest = () => {
     setHistory(initialHistory);
