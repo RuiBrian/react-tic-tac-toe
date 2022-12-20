@@ -1,4 +1,4 @@
-# Tic-tac-toe
+# React-tic-tac-toe
 
 Yet another tic-tac-toe implementation...
 
