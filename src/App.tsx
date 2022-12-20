@@ -104,7 +104,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className="container">
       <Header />
       <div className="game">
         <Board squares={current.squares} onClick={(i) => handleClick(i)} />
@@ -114,12 +114,12 @@ const App = () => {
             <ol>{moves}</ol>
           </div>
           <button onClick={() => handleResetRequest()} className="resetButton">
-            reset
+            Reset
           </button>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

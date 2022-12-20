@@ -11,16 +11,6 @@ body {
   flex-direction: column;
 }
 
-h1 {
-  background-color: #1b998b;
-  margin: 20px;
-  padding: 10px;
-  text-align: center;
-  font-size: 52px;
-  font-weight: bold;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
 ol {
   padding: 0;
   margin: 0;
@@ -34,18 +24,6 @@ button {
   font-weight: bold;
   border: none;
   cursor: pointer;
-}
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  font-size: larger;
-  text-align: center;
-  color: white;
-  margin-top: auto;
-  margin-bottom: 10px;
 }
 
 a {

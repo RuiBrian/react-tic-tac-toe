@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer>
+  <footer className="footer">
     // View on <a href="https://github.com/RuiBrian/reactjs-tic-tac-toe">GitHub</a> //
   </footer>
 );
