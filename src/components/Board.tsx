@@ -1,8 +1,12 @@
-import React from "react";
 import Square from "./Square";
 
-const Board = ({ squares, onClick }) => {
-  const createSquare = (i, key) => {
+interface BoardProps {
+  squares: string[];
+  onClick: (i: number) => void;
+}
+
+const Board = ({ squares, onClick }: BoardProps) => {
+  const createSquare = (i: number, key: number) => {
     return <Square key={key} value={squares[i]} onClick={() => onClick(i)} />;
   };
 

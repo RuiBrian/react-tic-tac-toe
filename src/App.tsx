@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from "react";
-import Board from "./Board";
+import { useEffect, useState } from "react";
+import Board from "./components/Board";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const updateScroll = () => {
-  let element = document.getElementById("history");
-  element.scrollTop = element.scrollHeight;
+  const element = document.getElementById("history");
+
+  if (element) {
+    element.scrollTop = element.scrollHeight;
+  }
 };
 
-const calculateWinner = (squares) => {
+const calculateWinner = (squares: number[]) => {
   // Win conditions
   const lines = [
     [0, 1, 2],
@@ -35,7 +40,7 @@ const initialHistory = [
   },
 ];
 
-const Game = () => {
+const App = () => {
   const [history, setHistory] = useState(initialHistory);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
@@ -50,12 +55,12 @@ const Game = () => {
     setXIsNext(true);
   };
 
-  const jumpTo = (step) => {
+  const jumpTo = (step: number) => {
     setStepNumber(step);
     setXIsNext(step % 2 === 0);
   };
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     const hist = history.slice(0, stepNumber + 1);
     const current = hist[hist.length - 1];
     const squares = current.squares.slice();
@@ -81,7 +86,7 @@ const Game = () => {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
   const moves = history.map((_, move) => {
-    const description = move ? "move " + move : "game start";
+    const description = move ? "Move " + move : "Game start";
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
@@ -91,27 +96,31 @@ const Game = () => {
 
   let status = "";
   if (winner) {
-    status = "winner: " + winner;
+    status = "Winner: " + winner;
   } else if (history.length !== 10) {
-    status = "player: " + (xIsNext ? "x" : "o");
+    status = "Player: " + (xIsNext ? "x" : "o");
   } else {
-    status = "draw";
+    status = "Draw";
   }
 
   return (
-    <div className="game">
-      <Board squares={current.squares} onClick={(i) => handleClick(i)} />
-      <div className="game-info">
-        <div id="status">{status}</div>
-        <div id="history">
-          <ol>{moves}</ol>
+    <>
+      <Header />
+      <div className="game">
+        <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+        <div className="game-info">
+          <div id="status">{status}</div>
+          <div id="history">
+            <ol>{moves}</ol>
+          </div>
+          <button onClick={() => handleResetRequest()} className="resetButton">
+            reset
+          </button>
         </div>
-        <button onClick={() => handleResetRequest()} className="resetButton">
-          reset
-        </button>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
-export default Game;
+export default App;
